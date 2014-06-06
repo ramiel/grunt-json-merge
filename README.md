@@ -51,6 +51,20 @@ Spacer string for JSON.stringify as specified [here](https://developer.mozilla.o
 
 ### Usage Examples
 
+##General
+Json files will be merged and colliding keys will be overridden from latest to first file defined in src parameter.
+So in this case:
+```js
+grunt.initConfig({
+  json_merge: {
+    files: { 'dest/merged.json': ['src/a.json','src/b.json'] },
+  },
+});
+```
+Properties in file `b` will override properties in file `a`.
+For further information read documentation of [underscoreDeepExtend](https://github.com/pygy/underscoreDeepExtend) which is internally used to merge properties
+
+
 #### Default Options
 Merge all files `.json` in a direcotry to create a merged file specified as destination
 
