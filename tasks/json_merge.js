@@ -8,6 +8,9 @@
 
 'use strict';
 
+var util = require('util'),
+    _ = require('underscore');
+
 module.exports = function(grunt) {
 
   // Please see the Grunt documentation for more information regarding task
@@ -16,8 +19,8 @@ module.exports = function(grunt) {
   grunt.registerMultiTask('json_merge', 'Grunt plugin to merge JSON files handling override of keys', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
-        punctuation: '.',
-        separator: ', '
+        replacer: null,
+        space: "\t"
     });
 
     // Iterate over all specified file groups.
@@ -34,13 +37,14 @@ module.exports = function(grunt) {
         }).map(function(filepath) {
             // Read file source.
             return grunt.file.readJSON(filepath);
-        })
-        console.log(JSONS);
+        });
+        var merged = {};
+        _.extend.apply( _ , [merged].concat(JSONS) );
         // Handle options.
         
     
         // Write the destination file.
-        //grunt.file.write(f.dest, src);
+        grunt.file.write(f.dest, JSON.stringify(merged, options.replacer, options.space) );
     
         // Print a success message.
         grunt.log.writeln('File "' + f.dest + '" created.');
