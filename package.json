@@ -1,7 +1,7 @@
 {
   "name": "grunt-json-merge",
   "description": "Grunt plugin to merge JSON files handling override of keys",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/ramiel/grunt-json-merge",
   "author": {
     "name": "Fabrizio \"Ramiel\" Ruggeri",
