@@ -25,6 +25,7 @@ var grunt = require('grunt');
 exports.json_merge = {
   setUp: function(done) {
     // setup here if necessary
+    console.log('Missing test for now...sorry!')
     done();
   },
   default_options: function(test) {
