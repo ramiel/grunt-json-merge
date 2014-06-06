@@ -31,19 +31,18 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     json_merge: {
       default_options: {
-        options: {
-        },
+        options: {},
         files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
+          'tmp/default_options.json': ['test/fixtures/A.json', 'test/fixtures/B.json']
         }
       },
       custom_options: {
         options: {
-          separator: ': ',
-          punctuation: ' !!!'
+            replacer: null,
+            space: "    "
         },
         files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
+          'tmp/custom_options.json': ['test/fixtures/*.json']
         }
       }
     },
