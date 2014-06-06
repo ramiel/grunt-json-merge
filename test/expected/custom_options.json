@@ -1,10 +1,10 @@
 {
     "a": {
-        "b": "hello",
         "c": {
             "d": "good",
             "e": "in the sky"
-        }
+        },
+        "b": "hello"
     },
     "more": "here",
     "key": "value"
