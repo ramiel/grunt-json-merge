@@ -9,7 +9,10 @@
 'use strict';
 
 var util = require('util'),
-    _ = require('underscore');
+    _ = require('underscore'),
+    underscoreDeepExtend = require('underscore-deep-extend');
+
+_.mixin({deepExtend: underscoreDeepExtend(_)});
 
 module.exports = function(grunt) {
 
@@ -38,8 +41,9 @@ module.exports = function(grunt) {
             // Read file source.
             return grunt.file.readJSON(filepath);
         });
-        var merged = {};
-        _.extend.apply( _ , [merged].concat(JSONS) );
+        
+        var merged = _.deepExtend.apply(_,JSONS);
+        //_.extend.apply( _ , [merged].concat(JSONS) );
         // Handle options.
         
     
