@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ramiel/grunt-json-merge.svg?branch=master)](https://travis-ci.org/ramiel/grunt-json-merge)
+
 # grunt-json-merge
 
 > Grunt plugin to merge JSON files handling override of keys
