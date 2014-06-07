@@ -26,10 +26,11 @@ In your project's Gruntfile, add a section named `json_merge` to the data object
 grunt.initConfig({
   json_merge: {
     options: {
-      // Task-specific options go here.
+      replacer: null,
+      space: " "
     },
     your_target: {
-      // Target-specific file lists and/or options go here.
+      files: { 'dest/merged.json': ['src/a.json','src/b.json'] },
     },
   },
 });
@@ -41,18 +42,18 @@ grunt.initConfig({
 Type: `Function` or `Array` 
 Default value: `null`
 
-Replacer option for JSON.stringify as specified [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+Replacer option for JSON.stringify as specified in [documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
 
 #### options.space
 Type: `String`
 Default value: `\t`
 
-Spacer string for JSON.stringify as specified [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+Spacer string for JSON.stringify as specified in [documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
 
 ### Usage Examples
 
 ##General
-Json files will be merged and colliding keys will be overridden from latest to first file defined in src parameter.
+Json files will be merged and colliding keys will be overwrite from latest to first file defined in src parameter.
 So in this case:
 ```js
 grunt.initConfig({
@@ -61,7 +62,7 @@ grunt.initConfig({
   },
 });
 ```
-Properties in file `b` will override properties in file `a`.
+Properties in file `b` will overwrite properties in file `a`.
 For further information read documentation of [underscoreDeepExtend](https://github.com/pygy/underscoreDeepExtend) which is internally used to merge properties
 
 
@@ -99,5 +100,9 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+0.2.2
+  - Readme improvements
+0.2.0
+  - Powerful merge
 0.1.0
   - Base functionalities
