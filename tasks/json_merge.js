@@ -42,16 +42,20 @@ module.exports = function(grunt) {
             return grunt.file.readJSON(filepath);
         });
         
-        var merged = _.deepExtend.apply(_,JSONS);
-        //_.extend.apply( _ , [merged].concat(JSONS) );
-        // Handle options.
-        
-    
-        // Write the destination file.
-        grunt.file.write(f.dest, JSON.stringify(merged, options.replacer, options.space) );
-    
-        // Print a success message.
-        grunt.log.writeln('File "' + f.dest + '" created.');
+        try {
+          var merged = _.deepExtend.apply(_,JSONS);
+          //_.extend.apply( _ , [merged].concat(JSONS) );
+          // Handle options.
+          
+      
+          // Write the destination file.
+          grunt.file.write(f.dest, JSON.stringify(merged, options.replacer, options.space) );
+      
+          // Print a success message.
+          grunt.log.writeln('File "' + f.dest + '" created.');
+        } catch(e) {
+          grunt.fail.warn(e);
+        }
     });
   });
 
